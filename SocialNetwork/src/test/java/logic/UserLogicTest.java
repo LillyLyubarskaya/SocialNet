@@ -41,13 +41,11 @@ public class UserLogicTest {
         user.setStatus(1);
         userLogic.createUser(user);
         verify(userDao).create(user);
-        Assert.fail();
     }
     @Test
     public void userGetTest() {
         doReturn(res).when(userDao).getAll();
         User result=userLogic.getUser("haruki@mail.com","rA354567S");
-        Assert.assertTrue(result.getEmail().compareTo("haruki@mail.com")==1);
-        Assert.fail();
+        Assert.assertTrue(result.getEmail().compareTo("haruki@mail.com")==0);
     }
 }
