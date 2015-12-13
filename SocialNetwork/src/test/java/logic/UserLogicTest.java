@@ -41,6 +41,7 @@ public class UserLogicTest {
         user.setStatus(1);
         userLogic.createUser(user);
         verify(userDao).create(user);
+        Assert.fail();
     }
     @Test
     public void userGetTest() {
