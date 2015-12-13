@@ -46,6 +46,6 @@ public class UserLogicTest {
     public void userGetTest() {
         doReturn(res).when(userDao).getAll();
         User result=userLogic.getUser("haruki@mail.com","rA354567S");
-        Assert.assertTrue(result.getEmail().compareTo("haruki@mail.com")==0);
+        Assert.assertTrue(result.getEmail().compareTo("haruki@mail.com")==1);
     }
 }
