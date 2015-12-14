@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Map;
 
 /**
  * Created by Lilly_94 on 21.11.2015.
@@ -33,7 +32,6 @@ public class AuthificationServlet  extends HttpServlet{
             req.getRequestDispatcher("/error_auth.jsp").forward(req, resp);
         }
         else{
-            System.out.println("ERROR!!!");
             req.getRequestDispatcher("/error_auth.jsp").forward(req, resp);
         }
 
