@@ -1,10 +1,10 @@
 package controller;
 
-import com.sun.net.httpserver.HttpServer;
+
 import logic.UserLogic;
 import model.User;
 import model.UserInfo;
-import org.apache.commons.io.IOUtils;
+
 import utils.Utils;
 
 import javax.servlet.ServletException;
@@ -14,8 +14,6 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
 
 /**
  * Created by Lilly_94 on 22.11.2015.
