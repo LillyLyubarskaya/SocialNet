@@ -31,7 +31,6 @@ public class UserLogicTest {
             user.setPassword(passwords[i]);
             user.setStatus(1);
             res.add(user);
-            System.out.println();
         }
     }
     @Test
