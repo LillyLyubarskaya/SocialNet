@@ -1,17 +1,15 @@
 package model;
 
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.Date;
-
 /**
  * Created by Lilly_94 on 18.11.2015.
  */
 @Entity
 @Table(name="USER_INFO")
 public class UserInfo {
-    private int info_id;
+    private int infoId;
     private String name;
     private String surname;
     private Date birthday;
@@ -66,13 +64,11 @@ public class UserInfo {
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "increment")
     @Column(name="info_id")
-    public int getInfo_id() {
-
-        return info_id;
+    public int getInfoId() {
+        return infoId;
     }
-
-    public void setInfo_id(int info_id) {
-        this.info_id = info_id;
+    public void setInfoId(int infoId) {
+        this.infoId = infoId;
     }
 
 }
