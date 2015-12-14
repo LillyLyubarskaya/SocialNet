@@ -1,7 +1,6 @@
 package utils;
 
 import model.Message;
-
 import java.util.Comparator;
 import java.util.Date;
 

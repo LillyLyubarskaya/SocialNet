@@ -1,18 +1,16 @@
 package dao;
 
 import model.Dialog;
-import model.User;
+
 import org.hibernate.Session;
 import org.hibernate.SessionException;
-import org.hibernate.annotations.SourceType;
-
 import java.util.List;
-import java.util.Set;
+
 
 /**
  * Created by Lilly_94 on 29.11.2015.
  */
-public class DialogDao extends AbstractDao<Dialog>{
+public class DialogDao extends AbstractDao<Dialog> {
     public Dialog getById(int id) {
         Session session = null;
         Dialog result = null;

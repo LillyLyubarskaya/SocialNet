@@ -1,10 +1,8 @@
 package model;
 
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import java.util.Date;
-
 /**
  * Created by Lilly_94 on 25.11.2015.
  */

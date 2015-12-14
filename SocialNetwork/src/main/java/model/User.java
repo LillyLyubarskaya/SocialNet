@@ -1,11 +1,7 @@
 package model;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
 import javax.persistence.*;
-
 /**
  * Created by Lilly_94 on 18.11.2015.
  */

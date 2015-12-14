@@ -1,14 +1,9 @@
 package logic;
 
 import dao.DialogDao;
-import dao.HibernateUtil;
 import model.Dialog;
 import model.Message;
 import model.User;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
-import org.hibernate.SessionException;
-
 import java.util.*;
 
 /**
@@ -60,14 +55,14 @@ public class DialogLogic {
         }
         return res;
     }
-    public List<Dialog> reduce( List<Dialog> dialogs){
-        List<Dialog> new_dialogs=new ArrayList<Dialog>();
+    public List<Dialog> reduce(List<Dialog> dialogs){
+        List<Dialog> newDialogs=new ArrayList<Dialog>();
         for(Dialog d:dialogs){
-            if(!new_dialogs.contains(d)){
-                new_dialogs.add(d);
+            if(!newDialogs.contains(d)){
+                newDialogs.add(d);
             }
         }
-        return new_dialogs;
+        return newDialogs;
     }
     public ArrayList<Dialog> searchDialogs(int id1){
         List<Dialog> dialogs =reduce(dao.getAll());
@@ -84,7 +79,7 @@ public class DialogLogic {
             }
         }
         System.out.println("DIALOG AMOUNT " + dialogs.size());
-        System.out.println("DIALOG AMOUNT "+result.size());
+        System.out.println("DIALOG AMOUNT "+ result.size());
         return result;
     }
     public Message getLastMessage(Dialog d){

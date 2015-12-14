@@ -4,8 +4,6 @@ import logic.UserLogic;
 import model.User;
 import model.UserInfo;
 import org.apache.commons.io.IOUtils;
-
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

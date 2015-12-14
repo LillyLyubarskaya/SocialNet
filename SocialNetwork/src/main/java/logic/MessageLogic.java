@@ -4,8 +4,9 @@ import dao.MessageDao;
 import model.Message;
 import model.User;
 import utils.DateComparator;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by Lilly_94 on 26.11.2015.

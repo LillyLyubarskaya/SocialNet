@@ -1,17 +1,11 @@
 package logic;
 
-import dao.HibernateUtil;
+
 import dao.UserDao;
 import model.User;
 import model.UserInfo;
-import org.hibernate.Session;
-import org.hibernate.SessionException;
-
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-
 /**
  * Created by Lilly_94 on 21.11.2015.
  */

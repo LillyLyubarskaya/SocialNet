@@ -2,7 +2,6 @@ package controller;
 
 import logic.UserLogic;
 import model.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,8 +29,7 @@ public class AuthificationServlet  extends HttpServlet{
                 req.getRequestDispatcher("/userServlet").forward(req, resp);
             }
             req.getRequestDispatcher("/error_auth.jsp").forward(req, resp);
-        }
-        else{
+        }else{
             req.getRequestDispatcher("/error_auth.jsp").forward(req, resp);
         }
 

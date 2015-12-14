@@ -2,10 +2,8 @@ package dao;
 
 import model.Dialog;
 import model.Message;
-import model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionException;
-
 import java.util.List;
 
 /**

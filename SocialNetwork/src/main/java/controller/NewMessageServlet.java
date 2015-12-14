@@ -4,7 +4,6 @@ import logic.DialogLogic;
 import logic.UserLogic;
 import model.Dialog;
 import model.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

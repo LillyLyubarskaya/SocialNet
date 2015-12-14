@@ -4,7 +4,6 @@ import model.User;
 import model.UserInfo;
 import org.hibernate.Session;
 import org.hibernate.SessionException;
-
 import java.util.List;
 
 /**
