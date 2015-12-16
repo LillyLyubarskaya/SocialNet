@@ -2,6 +2,7 @@ package logic;
 
 import dao.DialogDao;
 import dao.UserDao;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import model.Dialog;
 import model.Message;
 import model.User;
@@ -9,6 +10,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import javax.validation.constraints.AssertTrue;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -56,7 +58,7 @@ public class DialogLogicTest {
             if(user.getId()!=other.getId()){
                 Dialog d=new Dialog();
                 dialogs.add(d);
-                d.setId(counter);
+                d.setId(counter+1);
                 Set<Message> messages=new HashSet<Message>();
                 Message m=new Message();
                 m.setFrom(user);
@@ -83,5 +85,22 @@ public class DialogLogicTest {
         dialogLogic.addNewMessage(d,"Text",users.get(0),3);
         verify(dialogDao).update(d);
         verify(userLogic).searchUser(3);
+    }
+    @Test
+    public void searchDialogTest(){
+        doReturn(dialogs).when(dialogDao).getAll();
+        Dialog d=dialogLogic.searchDialog(1,3);
+        verify(dialogDao).getAll();
+        Set<Message> m=d.getMessages();
+        for(Message message:m){
+            Assert.assertTrue(message.getFrom().getId()==3 || message.getTo().getId()==3);
+        }
+    }
+    @Test
+    public void getByIdTest(){
+        doReturn(dialogs.get(0)).when(dialogDao).getById(1);
+        Dialog d=dialogLogic.getById(1);
+        verify(dialogDao).getById(1);
+        Assert.assertTrue(d.getId()==1);
     }
 }
