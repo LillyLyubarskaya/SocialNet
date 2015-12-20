@@ -5,6 +5,7 @@ import model.User;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.List;
+import org.junit.Ignore;
 
 /**
  * Created by Lilly_94 on 14.12.2015.
