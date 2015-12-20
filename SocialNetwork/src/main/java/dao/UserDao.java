@@ -15,7 +15,7 @@ public class UserDao extends AbstractDao<User> {
         Session session = null;
         User result = null;
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = backOff();
             session.beginTransaction();
             result = (User)session.get(User.class,id);
             session.getTransaction().commit();
@@ -62,7 +62,7 @@ public class UserDao extends AbstractDao<User> {
     public void saveUserInfo(UserInfo ui){
         Session session = null;
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = backOff();
             session.beginTransaction();
             session.save(ui);
             session.getTransaction().commit();

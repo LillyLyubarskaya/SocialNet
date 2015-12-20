@@ -15,7 +15,7 @@ public abstract class AbstractDao<T> {
         Session session = null;
         T result = null;
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = backOff();
             session.beginTransaction();
             fillSave(session, entity);
             session.getTransaction().commit();
@@ -33,7 +33,7 @@ public abstract class AbstractDao<T> {
     public void delete(T entity) {
         Session session = null;
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = backOff();
             session.beginTransaction();
             fillDelete(session,entity);
             session.getTransaction().commit();
@@ -51,7 +51,7 @@ public abstract class AbstractDao<T> {
         Session session = null;
         T result = null;
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = backOff();
             session.beginTransaction();
             result = fillUpdate(session, entity);
             session.getTransaction().commit();
@@ -69,7 +69,7 @@ public abstract class AbstractDao<T> {
         Session session = null;
         List<T> enities = null;
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = backOff();
             enities = fillListEntity(session);
 
         } catch (Exception e) {
@@ -90,5 +90,8 @@ public abstract class AbstractDao<T> {
     public abstract List<T> fillListEntity(Session session);
 
     public abstract void fillDelete(Session session, T entity);
-
+    public Session backOff(){
+        Session session=null;
+        return  HibernateUtil.getSessionFactory().openSession();
+    }
 }

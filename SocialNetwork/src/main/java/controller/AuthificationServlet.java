@@ -1,5 +1,6 @@
 package controller;
 
+import dao.HibernateUtil;
 import logic.UserLogic;
 import model.User;
 import javax.servlet.ServletException;
@@ -18,20 +19,25 @@ public class AuthificationServlet  extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        User user=UserLogic.getInstance().getUser(email,password);
-        if (user != null) {
-            HttpSession session = req.getSession();
-            session.setAttribute("user", user);
-            if(user.getUserInfo()==null){
-                req.getRequestDispatcher("/info.jsp").forward(req, resp);
+        if(HibernateUtil.checkConnection()){
+            User user=UserLogic.getInstance().getUser(email,password);
+            if (user != null) {
+                HttpSession session = req.getSession();
+                session.setAttribute("user", user);
+                if(user.getUserInfo()==null){
+                    req.getRequestDispatcher("/info.jsp").forward(req, resp);
+                }else{
+                    req.setAttribute("user",user);
+                    req.getRequestDispatcher("/userServlet").forward(req, resp);
+                }
+                req.getRequestDispatcher("/error_auth.jsp").forward(req, resp);
             }else{
-                req.setAttribute("user",user);
-                req.getRequestDispatcher("/userServlet").forward(req, resp);
+                req.getRequestDispatcher("/error_auth.jsp").forward(req, resp);
             }
-            req.getRequestDispatcher("/error_auth.jsp").forward(req, resp);
         }else{
-            req.getRequestDispatcher("/error_auth.jsp").forward(req, resp);
+            req.getRequestDispatcher("/connection.jsp").forward(req, resp);
         }
+
 
 
     }

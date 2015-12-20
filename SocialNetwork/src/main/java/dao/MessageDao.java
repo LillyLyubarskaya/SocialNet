@@ -15,7 +15,7 @@ public class MessageDao extends AbstractDao<Message> {
         Session session = null;
        Message result = null;
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = backOff();
             session.beginTransaction();
             result = (Message)session.get(Message.class,id);
             session.getTransaction().commit();

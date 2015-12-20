@@ -15,7 +15,7 @@ public class DialogDao extends AbstractDao<Dialog> {
         Session session = null;
         Dialog result = null;
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            session = backOff();
             session.beginTransaction();
             result = (Dialog)session.get(Dialog.class,id);
             session.getTransaction().commit();

@@ -1,10 +1,14 @@
 package dao;
 
 
+import model.User;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
+
+import java.util.List;
 
 
 /**
@@ -22,7 +26,12 @@ public class HibernateUtil {
             System.out.println("Error creating Session: " + he);
         }
     }
-
+    public static boolean checkConnection(){
+        boolean result;
+        Session session=sessionFactory.openSession();
+        List<User> users=new UserDao().getAll();
+        return result=(users!=null)? true:false;
+    }
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
